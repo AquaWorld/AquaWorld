@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -244,6 +245,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AquaWorld.Data.Models\AquaWorld.Data.Models.csproj">
+      <Project>{05fefa6f-9bab-408f-bac6-8a69fee81e27}</Project>
+      <Name>AquaWorld.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AquaWorld.Data\AquaWorld.Data.csproj">
+      <Project>{ace6fd14-487a-45a3-b37d-ca15588f895c}</Project>
+      <Name>AquaWorld.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
