@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AquaWorld.Data", "AquaWorld
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AquaWorld.Data.Models", "AquaWorld.Data.Models\AquaWorld.Data.Models.csproj", "{05FEFA6F-9BAB-408F-BAC6-8A69FEE81E27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AquaWorld.Data.Services", "AquaWorld.Data.Services\AquaWorld.Data.Services.csproj", "{B0B70F8E-5A20-455C-AAE6-E79633168DF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{05FEFA6F-9BAB-408F-BAC6-8A69FEE81E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05FEFA6F-9BAB-408F-BAC6-8A69FEE81E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05FEFA6F-9BAB-408F-BAC6-8A69FEE81E27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B70F8E-5A20-455C-AAE6-E79633168DF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B70F8E-5A20-455C-AAE6-E79633168DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B70F8E-5A20-455C-AAE6-E79633168DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B70F8E-5A20-455C-AAE6-E79633168DF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
