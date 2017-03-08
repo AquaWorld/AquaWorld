@@ -56,9 +56,9 @@ namespace AquaWorld.Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1821553468093964",
+               appSecret: "f89d02ff882f9e537e56b3cf4df9d7ea");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
