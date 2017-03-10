@@ -9,6 +9,7 @@ namespace AquaWorld.Tests
         [Test]
         public void TestMethod1()
         {
+            Assert.IsTrue(true);
         }
     }
 }
