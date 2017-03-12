@@ -10,6 +10,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AquaWorld.Web.Models;
 using AquaWorld.Data.Models;
+using AquaWorld.Data;
+using AquaWorld.Data.Contracts;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AquaWorld.Web.Controllers
 {
@@ -18,6 +21,7 @@ namespace AquaWorld.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private AquaWorldDbContext dbContext = new AquaWorldDbContext();
 
         public AccountController()
         {
@@ -154,6 +158,23 @@ namespace AquaWorld.Web.Controllers
             {
                 var user = new User { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                if (dbContext.Roles.Count() == 0)
+                {
+                    dbContext.Roles.Add(new IdentityRole("admin"));
+                    dbContext.Roles.Add(new IdentityRole("user"));
+                    dbContext.SaveChanges();
+                }
+
+                var userRole = new IdentityUserRole();
+                var adminRole = new IdentityUserRole();
+
+                userRole.RoleId = dbContext.Roles.FirstOrDefault(r => r.Name == "user").Id;
+                dbContext.SaveChanges();
+
+                adminRole.RoleId = dbContext.Roles.FirstOrDefault(x => x.Name == "admin").Id;
+                dbContext.SaveChanges();
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -163,6 +184,19 @@ namespace AquaWorld.Web.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    var usersCount = dbContext.Users.Count();
+                    var newUser = dbContext.Users.FirstOrDefault(u => u.UserName == user.UserName);
+                    if (usersCount == 1)
+                    {
+                        newUser.Roles.Add(adminRole);
+                        dbContext.SaveChanges();
+                    }
+                    else
+                    {
+                        newUser.Roles.Add(userRole);
+                        dbContext.SaveChanges();
+                    }
 
                     return RedirectToAction("Index", "Home");
                 }
