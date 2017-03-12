@@ -12,5 +12,10 @@ namespace AquaWorld.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult AddCreature()
+        {
+            return View();
+        }
     }
 }
