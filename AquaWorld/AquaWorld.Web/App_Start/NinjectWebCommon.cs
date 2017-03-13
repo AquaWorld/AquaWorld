@@ -12,6 +12,7 @@ namespace AquaWorld.Web.App_Start
     using Ninject.Web.Common;
     using Data;
     using Data.Contracts;
+    using Data.Repositories;
 
     public static class NinjectWebCommon 
     {
@@ -65,6 +66,7 @@ namespace AquaWorld.Web.App_Start
         {
             kernel.Bind(typeof(IAquaWorldDbContext)).To(typeof(AquaWorldDbContext)).InRequestScope();
             kernel.Bind(typeof(AquaWorldDbContext)).ToSelf().InRequestScope();
+            kernel.Bind(typeof(Data.Contracts.IEfGenericRepository<>)).To(typeof(EfGenericRepository<>)).InRequestScope();
         }        
     }
 }
