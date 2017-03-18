@@ -35,6 +35,18 @@
             </div>
         </div>
     </div>
+
+    @*<div class="jumbotron" style="padding:0">
+        @if (Session["CartName"] != null)
+        {
+            <h3>Your Cart:</h3>
+            <p> @Session["CartName"] </p>
+            <p>
+                <img src="@Session["CartImage"]" width="30" />
+            </p>
+        }
+    </div>*@
+
     <div class="container body-content">
         @RenderBody()
         <hr />

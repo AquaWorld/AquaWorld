@@ -34,5 +34,10 @@ namespace AquaWorld.Data.Services
         {
             return this.creatureDataProvider.All();
         }
+
+        public Creature GetCreatureById(int id)
+        {
+            return this.creatureDataProvider.GetById(id);
+        }
     }
 }

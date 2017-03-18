@@ -1,0 +1,21 @@
+﻿@model AquaWorld.Data.Models.Creature
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="jumbotron">
+    <h2>@Model.Name</h2>
+    <p style="text-align:center">
+        <img src="@Model.ImageUrl" width="300" />
+    </p>
+    <p>
+        <i>@Model.Description</i>
+    </p>
+    <span>Left: </span>
+    <span style="color:green"> @Model.AvailableCount </span>
+    <p style="text-align:center">
+        @Html.ActionLink("Add to cart", "AddToCart", new { id = Model.Id })
+    </p>
+</div>
+
