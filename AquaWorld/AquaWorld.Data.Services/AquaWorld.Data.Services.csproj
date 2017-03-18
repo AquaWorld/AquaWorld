@@ -40,7 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICreatureService.cs" />
+    <Compile Include="CreatureService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AquaWorld.Data.Models\AquaWorld.Data.Models.csproj">
+      <Project>{05fefa6f-9bab-408f-bac6-8a69fee81e27}</Project>
+      <Name>AquaWorld.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AquaWorld.Data\AquaWorld.Data.csproj">
+      <Project>{ACE6FD14-487A-45A3-B37D-CA15588F895C}</Project>
+      <Name>AquaWorld.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

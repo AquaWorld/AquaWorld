@@ -4,6 +4,8 @@
     {
         string Name { get; set; }
 
+        string ImageUrl { get; set; }
+
         string Category { get; set; }
 
         string Description { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AquaWorld.Data.Contracts
 {
-    public interface IEfGenericRepository<T> : IDisposable where T : class
+    public interface IEfAquaWorldDataProvider<T> : IDisposable where T : class
     {
         IQueryable<T> All();
 

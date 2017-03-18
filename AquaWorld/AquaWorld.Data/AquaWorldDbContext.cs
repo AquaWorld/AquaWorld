@@ -19,6 +19,8 @@ namespace AquaWorld.Data
 
         }
 
+        public IDbSet<Creature> Creatures { get; set; }
+
         public static AquaWorldDbContext Create()
         {
             return new AquaWorldDbContext();

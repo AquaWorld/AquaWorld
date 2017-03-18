@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace AquaWorld.Data.Repositories
 {
-    public class EfGenericRepository<T> : IEfGenericRepository<T> where T : class
+    public class EfAquaWorldDataProvider<T> : IEfAquaWorldDataProvider<T> where T : class
     {
-        public EfGenericRepository(IAquaWorldDbContext context)
+        public EfAquaWorldDataProvider(IAquaWorldDbContext context)
         {
             if (context == null)
             {

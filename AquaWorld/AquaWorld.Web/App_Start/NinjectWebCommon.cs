@@ -10,9 +10,15 @@ namespace AquaWorld.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Ninject.Extensions.Conventions;
     using Data;
     using Data.Contracts;
     using Data.Repositories;
+    using Data.Models;
+    using Data.Services.Contracts;
+    using Data.Services;
+    using IoC;
+    using System.Web.Mvc;
 
     public static class NinjectWebCommon 
     {
@@ -43,6 +49,9 @@ namespace AquaWorld.Web.App_Start
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
+            NinjectDependencyResolver ninjectResolver = new NinjectDependencyResolver(kernel);
+            DependencyResolver.SetResolver(ninjectResolver); //MVC 
+
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
@@ -66,7 +75,15 @@ namespace AquaWorld.Web.App_Start
         {
             kernel.Bind(typeof(IAquaWorldDbContext)).To(typeof(AquaWorldDbContext)).InRequestScope();
             kernel.Bind(typeof(AquaWorldDbContext)).ToSelf().InRequestScope();
-            kernel.Bind(typeof(Data.Contracts.IEfGenericRepository<>)).To(typeof(EfGenericRepository<>)).InRequestScope();
+            kernel.Bind(typeof(IEfAquaWorldDataProvider<>)).To(typeof(EfAquaWorldDataProvider<>));
+
+            kernel.Bind(s => s.From("AquaWorld.Data.Services")
+                             .SelectAllClasses()
+                             .BindDefaultInterface());
+
+            kernel.Bind(s => s.From("AquaWorld.Data.Models")
+                            .SelectAllClasses()
+                            .BindDefaultInterface());
         }        
     }
 }
