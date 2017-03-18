@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AquaWorld.Data.Models.Contracts;
 using AquaWorld.Data.Contracts;
 using AquaWorld.Data.Models;
+using Bytes2you.Validation;
 
 namespace AquaWorld.Data.Services
 {
@@ -16,11 +17,15 @@ namespace AquaWorld.Data.Services
 
         public CreatureService(IEfAquaWorldDataProvider<Creature> creatureDataProvider)
         {
+            Guard.WhenArgument(creatureDataProvider, "creatureDataProvider").IsNull().Throw();
+
             this.creatureDataProvider = creatureDataProvider;
         }
 
         public void Create(Creature creature)
         {
+            Guard.WhenArgument(creature, "creature").IsNull().Throw();
+
             this.creatureDataProvider.Add(creature);
             this.creatureDataProvider.SaveChanges();
         }
