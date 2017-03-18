@@ -1,4 +1,5 @@
 ﻿using AquaWorld.Data.Models.Contracts;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,6 +14,7 @@ namespace AquaWorld.Data.Models
         [MaxLength(50)]
         public string Name { get; set; }
 
+        [DisplayName("Preview")]
         public string ImageUrl { get; set; }
 
         public string Category { get; set; }

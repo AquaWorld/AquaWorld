@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AquaWorld.Data.Models.Creature>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Creatures</h2>
+
+<table class="table">
+    <tr class="row">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvailableCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="row">
+            <td width="100">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td width="100">
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td width="100">
+                @Html.DisplayFor(modelItem => item.AvailableCount)
+            </td>
+            <td>
+               <img src="@item.ImageUrl" width="100"/>
+            </td>
+        </tr>
+    }
+
+</table>

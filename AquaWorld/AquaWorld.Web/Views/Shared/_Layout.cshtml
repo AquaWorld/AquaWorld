@@ -21,6 +21,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Catalogue", "Index", "Creatures")</li>
 
                     @{
                         if (User.IsInRole("admin"))

@@ -29,5 +29,10 @@ namespace AquaWorld.Data.Services
             this.creatureDataProvider.Add(creature);
             this.creatureDataProvider.SaveChanges();
         }
+
+        public IQueryable<Creature> GetAllCreatures()
+        {
+            return this.creatureDataProvider.All();
+        }
     }
 }

@@ -67,10 +67,6 @@
       <Project>{ace6fd14-487a-45a3-b37d-ca15588f895c}</Project>
       <Name>AquaWorld.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AquaWorld.Web\AquaWorld.Web.csproj">
-      <Project>{a619e1fc-7817-484d-8ccc-85c083bc3b3f}</Project>
-      <Name>AquaWorld.Web</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
