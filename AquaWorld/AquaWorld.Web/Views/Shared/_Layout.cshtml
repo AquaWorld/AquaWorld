@@ -29,7 +29,10 @@
                             <li>@Html.ActionLink("Admin part", "Index", "Admin")</li>
                         }
                     }
-
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="margin-top: 0px; margin-left: 15px; display: table-row">
+                    <li><a href="/ShoppingCart"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -37,15 +40,15 @@
     </div>
 
     @*<div class="jumbotron" style="padding:0">
-        @if (Session["CartName"] != null)
-        {
-            <h3>Your Cart:</h3>
-            <p> @Session["CartName"] </p>
-            <p>
-                <img src="@Session["CartImage"]" width="30" />
-            </p>
-        }
-    </div>*@
+            @if (Session["CartName"] != null)
+            {
+                <h3>Your Cart:</h3>
+                <p> @Session["CartName"] </p>
+                <p>
+                    <img src="@Session["CartImage"]" width="30" />
+                </p>
+            }
+        </div>*@
 
     <div class="container body-content">
         @RenderBody()
