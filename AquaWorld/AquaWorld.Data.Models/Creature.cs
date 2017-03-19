@@ -22,5 +22,7 @@ namespace AquaWorld.Data.Models
         public string Description { get; set; }
 
         public int AvailableCount { get; set; }
+
+        public decimal Price { get; set; }
     }
 }

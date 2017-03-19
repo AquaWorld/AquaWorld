@@ -23,7 +23,8 @@ namespace AquaWorld.Tests.Models
                 Description = "desc",
                 AvailableCount = 2,
                 Category = "fresh",
-                ImageUrl = "http://site.com"
+                ImageUrl = "http://site.com",
+                Price = 12.5m
             };
 
             //Assert
@@ -33,6 +34,7 @@ namespace AquaWorld.Tests.Models
 
             Assert.AreEqual(actualCreature.Id, 1);
             Assert.AreEqual(actualCreature.AvailableCount, 2);
+            Assert.AreEqual(actualCreature.Price, 12.5m);
             Assert.AreEqual(actualCreature.Name, "name");
             Assert.AreEqual(actualCreature.Description, "desc");
             Assert.AreEqual(actualCreature.Category, "fresh");

@@ -11,5 +11,7 @@
         string Description { get; set; }
 
         int AvailableCount { get; set; }
+
+        decimal Price { get; set; }
     }
 }
