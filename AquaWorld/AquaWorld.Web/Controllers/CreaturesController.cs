@@ -37,27 +37,5 @@ namespace AquaWorld.Web.Controllers
             var targetCreature = this.creatureService.GetCreatureById(parsedId);
             return View(targetCreature);
         }
-
-        public ActionResult AddToCart(int? id)
-        {
-            int parsedId = (id == null) ? 0 : (int)id;
-
-            var cartItem = this.creatureService.GetCreatureById(parsedId);
-
-            if (Session["CartItems"] == null)
-            {
-                List<Creature> cartItems = new List<Creature>();
-                cartItems.Add(cartItem);
-                Session["CartItems"] = cartItems;
-            }
-            else
-            {
-                var cartItems = Session["CartItems"] as List<Creature>;
-                cartItems.Add(cartItem);
-                Session["CartItems"] = cartItems;
-            }
-
-            return RedirectToAction("Index");
-        }
     }
 }

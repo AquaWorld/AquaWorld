@@ -5,13 +5,13 @@
 
 @using AquaWorld.Data.Models
 
-<h3>Your Cart:</h3>
+<h3 style="color:white">Your Cart:</h3>
 
 @if (Session["CartItems"] != null)
 {
     foreach (Creature item in Session["CartItems"] as List<Creature>)
     {
-        <div class="jumbotron">
+        <div class="jumbotron" style="display:inline-block; background-color: rgba(255, 255, 255, 0.8)">
             <span> @item.Name </span>
             <span>
                 <img src="@item.ImageUrl" width="60" />
@@ -21,4 +21,11 @@
             </span>
         </div>
     }
+
+    var creaturesList = new List<Creature>();
+    creaturesList.AddRange(Session["CartItems"] as List<Creature>);
+    int creaturesCount = creaturesList.Count;
+  <div style="background-color: rgba(255, 255, 255, 0.8); padding: 15px 15px 15px 15px; border-radius:15px 15px 15px 15px">
+    <strong >Total Items: </strong><strong style="color:navy; font-size:large">@creaturesCount</strong>
+  </div>
 }
