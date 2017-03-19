@@ -3,5 +3,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Shopping Cart</h2>
+@using AquaWorld.Data.Models
 
+<h3>Your Cart:</h3>
+
+@if (Session["CartItems"] != null)
+{
+    foreach (Creature item in Session["CartItems"] as List<Creature>)
+    {
+        <div class="jumbotron">
+            <span> @item.Name </span>
+            <span>
+                <img src="@item.ImageUrl" width="60" />
+            </span>
+            <span>
+                @item.Price
+            </span>
+        </div>
+    }
+}

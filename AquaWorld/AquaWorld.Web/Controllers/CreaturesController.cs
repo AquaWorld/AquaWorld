@@ -1,4 +1,5 @@
-﻿using AquaWorld.Data.Services.Contracts;
+﻿using AquaWorld.Data.Models;
+using AquaWorld.Data.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,8 +44,18 @@ namespace AquaWorld.Web.Controllers
 
             var cartItem = this.creatureService.GetCreatureById(parsedId);
 
-            //Session["CartName"] = cartItem.Name;
-            //Session["CartImage"] = cartItem.ImageUrl;
+            if (Session["CartItems"] == null)
+            {
+                List<Creature> cartItems = new List<Creature>();
+                cartItems.Add(cartItem);
+                Session["CartItems"] = cartItems;
+            }
+            else
+            {
+                var cartItems = Session["CartItems"] as List<Creature>;
+                cartItems.Add(cartItem);
+                Session["CartItems"] = cartItems;
+            }
 
             return RedirectToAction("Index");
         }
