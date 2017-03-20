@@ -44,5 +44,22 @@ namespace AquaWorld.Web.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult RemoveFromCart(int? id)
+        {
+            int parsedId = (id == null) ? 0 : (int)id;
+
+            var cartItem = this.creatureService.GetCreatureById(parsedId);
+
+            if (Session["CartItems"] != null)
+            {
+                var cartItems = Session["CartItems"] as List<Creature>;
+                var target = cartItems.FirstOrDefault(x => x.Id == cartItem.Id);
+                cartItems.Remove(target);
+                Session["CartItems"] = cartItems;
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

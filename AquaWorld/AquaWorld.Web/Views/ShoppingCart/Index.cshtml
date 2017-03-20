@@ -9,9 +9,12 @@
 
 @if (Session["CartItems"] != null)
 {
+    decimal totalPrice = 0;
+
     foreach (Creature item in Session["CartItems"] as List<Creature>)
     {
-        <div class="jumbotron" style="display:inline-block; background-color: rgba(255, 255, 255, 0.8)">
+        totalPrice += item.Price;
+        <div class="jumbotron" style="display:inline-block; background-color: rgba(255, 255, 255, 0.8); padding:10px 10px 10px 10px">
             <span> @item.Name </span>
             <span>
                 <img src="@item.ImageUrl" width="60" />
@@ -19,13 +22,18 @@
             <span>
                 @item.Price
             </span>
+            <p>
+                @*@Html.ActionLink("Remove", "RemoveFromCart", new { id = item.Id })*@
+                <a href="/ShoppingCart/RemoveFromCart/?Id=@item.Id">Remove from cart</a>
+            </p>
         </div>
     }
 
     var creaturesList = new List<Creature>();
     creaturesList.AddRange(Session["CartItems"] as List<Creature>);
     int creaturesCount = creaturesList.Count;
-  <div style="background-color: rgba(255, 255, 255, 0.8); padding: 15px 15px 15px 15px; border-radius:15px 15px 15px 15px">
-    <strong >Total Items: </strong><strong style="color:navy; font-size:large">@creaturesCount</strong>
-  </div>
+    <div style="background-color: rgba(255, 255, 255, 0.8); padding: 15px 15px 15px 15px; border-radius:15px 15px 15px 15px">
+        <strong>Total Items: </strong><strong style="color:navy; font-size:large">@creaturesCount</strong>
+        <strong style="margin-left:20px">Total Price: </strong><strong style="color:navy; font-size:large">@totalPrice.ToString("C")</strong>
+    </div>
 }

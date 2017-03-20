@@ -12,11 +12,11 @@
     <p>
         <i>@Model.Description</i>
     </p>
-    <span>Left: </span>
+    <span>Left:   </span>
     <span style="color:green"> @Model.AvailableCount </span>
     <p style="text-align:center">
         @*@Html.ActionLink("Add to cart", "AddToCart", new { id = Model.Id })*@
-        <a href="/ShoppingCart/AddToCart/@Model.Id">Add to Cart</a>
+        <a href="/ShoppingCart/AddToCart/?Id=@Model.Id">Add to Cart</a>
     </p>
 </div>
 
