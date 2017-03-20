@@ -4,6 +4,7 @@
 }
 
 @using AquaWorld.Data.Models
+@using Microsoft.AspNet.Identity
 
 <h3 style="color:white">Your Cart:</h3>
 
@@ -35,5 +36,6 @@
     <div style="background-color: rgba(255, 255, 255, 0.8); padding: 15px 15px 15px 15px; border-radius:15px 15px 15px 15px">
         <strong>Total Items: </strong><strong style="color:navy; font-size:large">@creaturesCount</strong>
         <strong style="margin-left:20px">Total Price: </strong><strong style="color:navy; font-size:large">@totalPrice.ToString("C")</strong>
+        <a class="btn btn-success" style="float:right" href="/Order/Create/?userId=@User.Identity.GetUserId()">Order!</a>
     </div>
 }

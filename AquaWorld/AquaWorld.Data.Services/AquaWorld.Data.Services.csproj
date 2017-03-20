@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ICreatureService.cs" />
+    <Compile Include="Contracts\IOrderService.cs" />
     <Compile Include="CreatureService.cs" />
+    <Compile Include="OrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

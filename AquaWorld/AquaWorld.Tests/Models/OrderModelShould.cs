@@ -22,7 +22,7 @@ namespace AquaWorld.Tests.Models
                 OrderedOn = DateTime.Parse("03/22/2030"),
                 TotalPrice = 123.5m,
                 ItemsCount = 2,
-                UserId = 4,
+                UserId = "4",
                 User = user,
                 Creatures = listOfCreatures
             };
@@ -35,7 +35,7 @@ namespace AquaWorld.Tests.Models
             Assert.AreEqual(actualOrder.OrderedOn, DateTime.Parse("03/22/2030"));
             Assert.AreEqual(actualOrder.TotalPrice, 123.5m);
             Assert.AreEqual(actualOrder.ItemsCount, 2);
-            Assert.AreEqual(actualOrder.UserId, 4);
+            Assert.AreEqual(actualOrder.UserId, "4");
             Assert.AreEqual(actualOrder.Creatures, listOfCreatures);
             Assert.AreEqual(actualOrder.User, user);
         }

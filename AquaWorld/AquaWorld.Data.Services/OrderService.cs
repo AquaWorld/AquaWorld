@@ -1,0 +1,51 @@
+﻿using AquaWorld.Data.Contracts;
+using AquaWorld.Data.Models;
+using AquaWorld.Data.Models.Contracts;
+using AquaWorld.Data.Services.Contracts;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace AquaWorld.Data.Services
+{
+    public class OrderService : IOrderService
+    {
+        private readonly IEfAquaWorldDataProvider<Order> orderDataProvider;
+        private readonly IEfAquaWorldDataProvider<Creature> creatureDataProvider;
+        private readonly IOrder orderToCreate;
+
+        public OrderService(
+            IEfAquaWorldDataProvider<Order> orderDataProvider,
+            IEfAquaWorldDataProvider<Creature> creatureDataProvider,
+            IOrder orderToCreate)
+        {
+            this.orderDataProvider = orderDataProvider;
+            this.creatureDataProvider = creatureDataProvider;
+            this.orderToCreate = orderToCreate;
+        }
+
+        public void CreateOrder(string userId, IList<Creature> creaturesList)
+        {
+
+            this.orderToCreate.UserId = userId;
+            this.orderToCreate.OrderedOn = DateTime.Now;
+            this.orderToCreate.ItemsCount = creaturesList.Count();
+            this.orderToCreate.Creatures = new List<Creature>();
+
+            decimal totalPrice = 0;
+            foreach (var item in creaturesList)
+            {
+                var currentCreature = this.creatureDataProvider.GetById(item.Id);
+                this.orderToCreate.Creatures.Add(currentCreature);
+                currentCreature.AvailableCount--;
+                this.creatureDataProvider.SaveChanges();
+                totalPrice += item.Price;
+            }
+
+            this.orderToCreate.TotalPrice = totalPrice;
+
+            this.orderDataProvider.Add((Order)this.orderToCreate);
+            this.orderDataProvider.SaveChanges();
+        }
+    }
+}
