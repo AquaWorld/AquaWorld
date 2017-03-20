@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\CreatureModelShould.cs" />
+    <Compile Include="Models\OrderModelShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CreatureService\ConstructorShould.cs" />
     <Compile Include="Services\CreatureService\CreateShould.cs" />
