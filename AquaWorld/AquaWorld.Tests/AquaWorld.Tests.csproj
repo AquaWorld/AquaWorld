@@ -52,6 +52,7 @@
     <Compile Include="Services\CreatureService\CreateShould.cs" />
     <Compile Include="Services\CreatureService\GetAllCreaturesShould.cs" />
     <Compile Include="Services\CreatureService\GetCreatureByIdShould.cs" />
+    <Compile Include="Services\OrderService\ConstructorShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
