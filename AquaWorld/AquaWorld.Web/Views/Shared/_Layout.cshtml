@@ -31,9 +31,13 @@
                     }
 
                 </ul>
-                <ul class="nav navbar-nav navbar-right" style="margin-top: 0px; margin-left: 15px; display: table-row">
-                    <li><a href="/ShoppingCart"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
-                </ul>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right" style="margin-top: 0px; margin-left: 15px; display: table-row">
+                        <li><a href="/ShoppingCart"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
+                        <li>@Html.ActionLink("My Orders", "MyOrders", "Order")</li>
+                    </ul>
+                }
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -43,7 +47,7 @@
             @RenderBody()
             <hr />
             <footer class="navbar navbar-inverse navbar-fixed-bottom">
-                <ul class="nav navbar-nav" >
+                <ul class="nav navbar-nav">
                     @*<li>&copy; @DateTime.Now.Year - My ASP.NET Application</li>*@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>

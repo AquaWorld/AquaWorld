@@ -38,5 +38,10 @@ namespace AquaWorld.Web.Controllers
 
             return isSuccess ? RedirectToAction("Index") : RedirectToAction("OutOfStock");
         }
+
+        public ActionResult MyOrders()
+        {
+            return View();
+        }
     }
 }
