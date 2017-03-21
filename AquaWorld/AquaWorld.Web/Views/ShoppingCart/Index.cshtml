@@ -6,7 +6,7 @@
 @using AquaWorld.Data.Models
 @using Microsoft.AspNet.Identity
 
-<h3 style="color:white">Your Cart:</h3>
+<h3 style="color:white">Your Cart Items:</h3>
 
 @if (Session["CartItems"] != null)
 {
@@ -18,14 +18,14 @@
         <div class="jumbotron" style="display:inline-block; background-color: rgba(255, 255, 255, 0.8); padding:10px 10px 10px 10px">
             <span> @item.Name </span>
             <span>
-                <img src="@item.ImageUrl" width="60" />
+                <img src="@item.ImageUrl" width="80" height="60" class="img-rounded" />
             </span>
             <span>
                 @item.Price.ToString("C")
             </span>
             <p>
                 @*@Html.ActionLink("Remove", "RemoveFromCart", new { id = item.Id })*@
-                <a href="/ShoppingCart/RemoveFromCart/?Id=@item.Id">Remove from cart</a>
+                <a href="/ShoppingCart/RemoveFromCart/?Id=@item.Id" style="font-size:medium">Remove from cart</a>
             </p>
         </div>
     }

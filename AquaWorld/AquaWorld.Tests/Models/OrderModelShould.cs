@@ -24,7 +24,8 @@ namespace AquaWorld.Tests.Models
                 ItemsCount = 2,
                 UserId = "4",
                 User = user,
-                Creatures = listOfCreatures
+                Creatures = listOfCreatures,
+                isProceeded = false
             };
 
             //Assert
@@ -38,6 +39,7 @@ namespace AquaWorld.Tests.Models
             Assert.AreEqual(actualOrder.UserId, "4");
             Assert.AreEqual(actualOrder.Creatures, listOfCreatures);
             Assert.AreEqual(actualOrder.User, user);
+            Assert.AreEqual(actualOrder.isProceeded, false);
         }
     }
 }
