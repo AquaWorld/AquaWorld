@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AquaWorld.Data.Contracts
 {
@@ -17,8 +14,6 @@ namespace AquaWorld.Data.Contracts
         void Update(T entity);
 
         void Delete(T entity);
-
-        void Delete(int id);
 
         void Detach(T entity);
 

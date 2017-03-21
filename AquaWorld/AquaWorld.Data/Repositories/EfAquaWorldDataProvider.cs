@@ -1,11 +1,8 @@
 ﻿using AquaWorld.Data.Contracts;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AquaWorld.Data.Repositories
 {
@@ -22,9 +19,9 @@ namespace AquaWorld.Data.Repositories
             this.DbSet = this.Context.Set<T>();
         }
 
-        protected IDbSet<T> DbSet { get; set; }
+        public IDbSet<T> DbSet { get; set; }
 
-        protected IAquaWorldDbContext Context { get; set; }
+        public IAquaWorldDbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {
@@ -71,16 +68,6 @@ namespace AquaWorld.Data.Repositories
             {
                 this.DbSet.Attach(entity);
                 this.DbSet.Remove(entity);
-            }
-        }
-
-        public virtual void Delete(int id)
-        {
-            var entity = this.GetById(id);
-
-            if (entity != null)
-            {
-                this.Delete(entity);
             }
         }
 
