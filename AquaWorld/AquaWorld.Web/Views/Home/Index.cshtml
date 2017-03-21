@@ -1,10 +1,51 @@
-﻿@{
+﻿@model IEnumerable<AquaWorld.Data.Models.Creature>
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron" style="text-align:center; background-color: rgba(255, 255, 255, 0.8)">
-    <h3>Aqua World</h3>
-    <p style="color:greenyellow">Jenkins - Automated Deployment Test</p>
     <i class="lead">Order rare creatures online.</i>
     <p><a href="/creatures" class="btn btn-primary btn-lg">Catalogue &raquo;</a></p>
+</div>
+
+<div style="margin-left:330px">
+    <div id="carousel-example" class="carousel slide" data-ride="carousel" style="width:500px;height:300px;text-align:center">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+            @{int counter = 0; }
+            @foreach (var item in Model)
+            {
+                counter++;
+                <li data-target="#carousel-example" data-slide-to="@counter"></li>
+            }
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="item active">
+                <a href="/Creatures/Details/@Model.First().Id"><img src="@Model.First().ImageUrl" alt="First Image" class="img-rounded" style="width:500px;height:300px" /></a>
+                <div class="carousel-caption">
+                </div>
+            </div>
+            @{int counter2 = 0; }
+            @foreach (var item in Model)
+            {
+                if (counter2 > 0)
+                {
+                    <div class="item">
+                        <a href="/Creatures/Details/@item.Id"><img src="@item.ImageUrl" alt="First Image" class="img-rounded" style="width:500px;height:300px" /></a>
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                }
+                counter2++;
+            }
+        </div>
+
+        <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
 </div>

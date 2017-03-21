@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AquaWorld.Data.Services.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,16 @@ namespace AquaWorld.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ICreatureService creatureService;
+
+        public HomeController(ICreatureService creatureService)
+        {
+            this.creatureService = creatureService;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            return View(this.creatureService.GetAllCreatures());
         }
 
         public ActionResult About()
