@@ -24,11 +24,12 @@ namespace AquaWorld.Data.Services
             this.orderToCreate = orderToCreate;
         }
 
-        public void CreateOrder(string userId, IList<Creature> creaturesList)
+        public bool CreateOrder(string userId, IList<Creature> creaturesList)
         {
 
             this.orderToCreate.UserId = userId;
             this.orderToCreate.OrderedOn = DateTime.Now;
+            this.orderToCreate.isProceeded = false;
             this.orderToCreate.ItemsCount = creaturesList.Count();
             this.orderToCreate.Creatures = new List<Creature>();
 
@@ -37,8 +38,16 @@ namespace AquaWorld.Data.Services
             {
                 var currentCreature = this.creatureDataProvider.GetById(item.Id);
                 this.orderToCreate.Creatures.Add(currentCreature);
-                currentCreature.AvailableCount--;
-                this.creatureDataProvider.SaveChanges();
+                if (currentCreature.AvailableCount > 0)
+                {
+                    currentCreature.AvailableCount--;
+                    this.creatureDataProvider.SaveChanges();
+                }
+                else
+                {
+                    return false;
+                }
+
                 totalPrice += item.Price;
             }
 
@@ -46,6 +55,7 @@ namespace AquaWorld.Data.Services
 
             this.orderDataProvider.Add((Order)this.orderToCreate);
             this.orderDataProvider.SaveChanges();
+            return true;
         }
     }
 }

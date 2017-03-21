@@ -34,9 +34,9 @@ namespace AquaWorld.Web.Controllers
                 Session["CartItems"] = null;
             }
 
-            this.orderService.CreateOrder(userId, creaturesList);
+            bool isSuccess = this.orderService.CreateOrder(userId, creaturesList);
 
-            return RedirectToAction("Index");
+            return isSuccess ? RedirectToAction("Index") : RedirectToAction("OutOfStock");
         }
     }
 }

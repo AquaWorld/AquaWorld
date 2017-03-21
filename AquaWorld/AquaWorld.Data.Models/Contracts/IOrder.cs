@@ -13,6 +13,8 @@ namespace AquaWorld.Data.Models.Contracts
 
         int ItemsCount { get; set; }
 
+        bool isProceeded { get; set; }
+
         string UserId { get; set; }
 
         User User { get; set; }

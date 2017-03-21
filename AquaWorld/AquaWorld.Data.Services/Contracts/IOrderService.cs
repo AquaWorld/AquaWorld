@@ -9,6 +9,6 @@ namespace AquaWorld.Data.Services.Contracts
 {
     public interface IOrderService
     {
-        void CreateOrder(string userName, IList<Creature> creaturesList);
+        bool CreateOrder(string userName, IList<Creature> creaturesList);
     }
 }

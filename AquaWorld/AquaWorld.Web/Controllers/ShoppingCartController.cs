@@ -23,26 +23,39 @@ namespace AquaWorld.Web.Controllers
             return View();
         }
 
+        public ActionResult OutOfStock()
+        {
+            return View();
+        }
+
         public ActionResult AddToCart(int? id)
         {
             int parsedId = (id == null) ? 0 : (int)id;
 
             var cartItem = this.creatureService.GetCreatureById(parsedId);
 
-            if (Session["CartItems"] == null)
+            if (cartItem.AvailableCount >= 1)
             {
-                List<Creature> cartItems = new List<Creature>();
-                cartItems.Add(cartItem);
-                Session["CartItems"] = cartItems;
+
+                if (Session["CartItems"] == null)
+                {
+                    List<Creature> cartItems = new List<Creature>();
+                    cartItems.Add(cartItem);
+                    Session["CartItems"] = cartItems;
+                }
+                else
+                {
+                    var cartItems = Session["CartItems"] as List<Creature>;
+                    cartItems.Add(cartItem);
+                    Session["CartItems"] = cartItems;
+                }
+
+                return RedirectToAction("Index");
             }
             else
             {
-                var cartItems = Session["CartItems"] as List<Creature>;
-                cartItems.Add(cartItem);
-                Session["CartItems"] = cartItems;
+                return RedirectToAction("OutOfStock");
             }
-
-            return RedirectToAction("Index");
         }
 
         public ActionResult RemoveFromCart(int? id)
