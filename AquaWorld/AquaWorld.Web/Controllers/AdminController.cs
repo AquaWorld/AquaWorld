@@ -12,10 +12,12 @@ namespace AquaWorld.Web.Controllers
     public class AdminController : Controller
     {
         private readonly ICreatureService creatureService;
-        
-        public AdminController(ICreatureService creatureService)
+        private readonly IOrderService orderService;
+
+        public AdminController(ICreatureService creatureService, IOrderService orderService)
         {
             this.creatureService = creatureService;
+            this.orderService = orderService;
         }
 
         public ActionResult Index()
@@ -39,6 +41,11 @@ namespace AquaWorld.Web.Controllers
             }
 
             return View(creature);
+        }
+
+        public ActionResult CheckOrders()
+        {
+            return View(this.orderService.GetAllOrders());
         }
     }
 }

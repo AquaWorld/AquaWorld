@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AquaWorld.Data.Models.Order>
+@{
+    ViewBag.Title = "CheckOrders";
+}
+
+
+<div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.8)">
+    <h2>CheckOrders</h2>
+    <hr />
+    @foreach (var order in Model)
+    {
+        <p>
+            Ordered on: @String.Format("{0:f}", order.OrderedOn)
+        </p>
+        <p>
+            Ordered By: @order.User.UserName
+        </p>
+        <span>
+            Items: @order.ItemsCount
+        </span>
+        <span>
+            Total Price: @order.TotalPrice.ToString("C")
+        </span>
+        bool isProceeded = order.isProceeded;
+        <span>
+            Status: @if (isProceeded)
+            {
+                <span style="color:greenyellow">Proceeded</span>
+            }
+            else
+            {
+                <span style="color:red">Not Proceeded</span>
+            }
+        </span>
+        <hr />
+    }
+</div>
