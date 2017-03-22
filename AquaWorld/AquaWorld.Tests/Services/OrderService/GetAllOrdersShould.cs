@@ -8,7 +8,7 @@ using System.Linq;
 namespace AquaWorld.Tests.Services.OrderService
 {
     [TestFixture]
-    public class GetOrdersByUserIdShould
+    public class GetAllOrdersShould
     {
         [Test]
         public void CallOrderDataProviderAllMethod()
@@ -17,7 +17,6 @@ namespace AquaWorld.Tests.Services.OrderService
             var mockedOrderDataProvider = new Mock<IEfAquaWorldDataProvider<Order>>();
             var mockedCreatureDataProvider = new Mock<IEfAquaWorldDataProvider<Creature>>();
             var mockedOrderToCreate = new Order();
-            var userId = "Ak47";
 
             mockedOrderDataProvider.Setup(x => x.All()).Returns(new List<Order>().AsQueryable);
 
@@ -27,36 +26,22 @@ namespace AquaWorld.Tests.Services.OrderService
                 mockedCreatureDataProvider.Object,
                 mockedOrderToCreate);
 
-            actualOrderService.GetOrdersByUserId(userId);
+            actualOrderService.GetAllOrders();
 
             //Assert
             mockedOrderDataProvider.Verify(x => x.All(), Times.Once);
         }
 
         [Test]
-        public void ReturnOnlyOrderdsWithPassedUserId()
+        public void ReturnIQueryableOrdersCollectionProvidedFromOrderDataProviderAllMethod()
         {
             //Arrange
             var mockedOrderDataProvider = new Mock<IEfAquaWorldDataProvider<Order>>();
             var mockedCreatureDataProvider = new Mock<IEfAquaWorldDataProvider<Creature>>();
             var mockedOrderToCreate = new Order();
-            var userId = "Ak47";
-            var matchingOrder = new Order()
-            {
-                UserId = userId
-            };
+            var mockedOrdersCollection = new List<Order>() { mockedOrderToCreate };
 
-            var notMatchingOrder = new Order()
-            {
-                UserId = "notMatchedId"
-            };
-
-            var ordersList = new List<Order>() { matchingOrder, notMatchingOrder };
-
-            // ordersList has 2 orders but only one matches userId
-            int expectedCount = 1;
-
-            mockedOrderDataProvider.Setup(x => x.All()).Returns(ordersList.AsQueryable);
+            mockedOrderDataProvider.Setup(x => x.All()).Returns(mockedOrdersCollection.AsQueryable);
 
             //Act
             var actualOrderService = new AquaWorld.Data.Services.OrderService(
@@ -64,11 +49,11 @@ namespace AquaWorld.Tests.Services.OrderService
                 mockedCreatureDataProvider.Object,
                 mockedOrderToCreate);
 
-            var resultOrdersList = actualOrderService.GetOrdersByUserId(userId);
+            var resultOrdersCollection = actualOrderService.GetAllOrders();
 
             //Assert
-            Assert.AreEqual(resultOrdersList.Count(), expectedCount);
-            Assert.Contains(matchingOrder, resultOrdersList.ToList());
+            Assert.AreEqual(mockedOrdersCollection, resultOrdersCollection);
+            Assert.That(resultOrdersCollection, Is.InstanceOf<IQueryable<Order>>());
         }
     }
 }
