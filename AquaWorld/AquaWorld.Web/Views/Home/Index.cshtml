@@ -8,15 +8,18 @@
     <p><a href="/creatures" class="btn btn-primary btn-lg">Catalogue &raquo;</a></p>
 </div>
 
-<div style="margin-left:330px">
+<div style="margin-left:320px">
     <div id="carousel-example" class="carousel slide" data-ride="carousel" style="width:500px;height:300px;text-align:center">
         <ol class="carousel-indicators">
             <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
             @{int counter = 0; }
             @foreach (var item in Model)
             {
-                counter++;
+                if (counter > 0)
+                {
                 <li data-target="#carousel-example" data-slide-to="@counter"></li>
+                }
+                counter++;
             }
         </ol>
 
@@ -24,6 +27,7 @@
             <div class="item active">
                 <a href="/Creatures/Details/@Model.First().Id"><img src="@Model.First().ImageUrl" alt="First Image" class="img-rounded" style="width:500px;height:300px" /></a>
                 <div class="carousel-caption">
+                    <i style="font-size: x-large; color: white; text-shadow: 6px 6px 15px #000000">@Model.First().Name</i>
                 </div>
             </div>
             @{int counter2 = 0; }
@@ -34,6 +38,7 @@
                     <div class="item">
                         <a href="/Creatures/Details/@item.Id"><img src="@item.ImageUrl" alt="First Image" class="img-rounded" style="width:500px;height:300px" /></a>
                         <div class="carousel-caption">
+                            <i style="font-size: x-large; color: white; text-shadow: 6px 6px 15px #000000">@item.Name</i>
                         </div>
                     </div>
                 }

@@ -10,5 +10,7 @@ namespace AquaWorld.Data.Services.Contracts
     public interface IOrderService
     {
         bool CreateOrder(string userName, IList<Creature> creaturesList);
+
+        IQueryable<Order> GetOrdersByUserId(string userId);
     }
 }

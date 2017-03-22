@@ -57,5 +57,10 @@ namespace AquaWorld.Data.Services
             this.orderDataProvider.SaveChanges();
             return true;
         }
+
+        public IQueryable<Order> GetOrdersByUserId(string userId)
+        {
+            return this.orderDataProvider.All().Where(o => o.UserId == userId);
+        }
     }
 }
