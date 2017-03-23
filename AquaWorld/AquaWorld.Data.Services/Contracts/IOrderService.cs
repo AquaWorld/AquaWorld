@@ -14,5 +14,7 @@ namespace AquaWorld.Data.Services.Contracts
         IQueryable<Order> GetAllOrders();
 
         IQueryable<Order> GetOrdersByUserId(string userId);
+
+        void ProceedOrderById(int id);
     }
 }

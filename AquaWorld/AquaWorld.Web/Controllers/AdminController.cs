@@ -48,8 +48,9 @@ namespace AquaWorld.Web.Controllers
             return View(this.orderService.GetAllOrders());
         }
 
-        public ActionResult ProceedOrderById(string orderId)
+        public ActionResult ProceedOrderById(int orderId)
         {
+            this.orderService.ProceedOrderById(orderId);
             return RedirectToAction("CheckOrders");
         }
     }

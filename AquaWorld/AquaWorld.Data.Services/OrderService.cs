@@ -67,5 +67,12 @@ namespace AquaWorld.Data.Services
         {
             return this.orderDataProvider.All();
         }
+
+        public void ProceedOrderById(int id)
+        {
+            var targetOrder = this.orderDataProvider.GetById(id);
+            targetOrder.isProceeded = true;
+            this.orderDataProvider.SaveChanges();
+        }
     }
 }
