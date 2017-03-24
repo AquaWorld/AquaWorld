@@ -49,7 +49,7 @@ namespace AquaWorld.Tests.Data.EfAquaWorldDataProvider
             {
                 dataProvider.Add(mockedAdvert.Object);
             }
-            catch (NullReferenceException e)
+            catch (NullReferenceException)
             {
             }
 

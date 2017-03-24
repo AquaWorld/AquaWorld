@@ -45,7 +45,7 @@ namespace AquaWorld.Tests.Data.EfAquaWorldDataProvider
             {
                 dataProvider.Delete(mockedAdvert.Object);
             }
-            catch (NullReferenceException e)
+            catch (NullReferenceException)
             {
             }
 
