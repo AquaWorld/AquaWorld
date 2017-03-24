@@ -88,6 +88,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CreaturesController\ConstructorShould.cs" />
     <Compile Include="Controllers\HomeController\AboutShould.cs" />
     <Compile Include="Controllers\HomeController\ConstructorShould.cs" />
     <Compile Include="Controllers\HomeController\ContactShould.cs" />

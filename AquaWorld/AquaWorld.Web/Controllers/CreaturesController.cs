@@ -1,5 +1,6 @@
 ﻿using AquaWorld.Data.Models;
 using AquaWorld.Data.Services.Contracts;
+using Bytes2you.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace AquaWorld.Web.Controllers
 
         public CreaturesController(ICreatureService creatureService)
         {
+            Guard.WhenArgument(creatureService, "creatureService").IsNull().Throw();
+
             this.creatureService = creatureService;
         }
 
@@ -29,10 +32,6 @@ namespace AquaWorld.Web.Controllers
         public ActionResult Details(int? id)
         {
             int parsedId = (id == null) ? 0 : (int)id;
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 
             var targetCreature = this.creatureService.GetCreatureById(parsedId);
             return View(targetCreature);
