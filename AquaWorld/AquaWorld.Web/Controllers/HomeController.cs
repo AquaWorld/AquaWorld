@@ -1,4 +1,5 @@
 ﻿using AquaWorld.Data.Services.Contracts;
+using Bytes2you.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace AquaWorld.Web.Controllers
 
         public HomeController(ICreatureService creatureService)
         {
+            Guard.WhenArgument(creatureService, "creatureService").IsNull().Throw();
+
             this.creatureService = creatureService;
         }
 
