@@ -55,6 +55,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\HomeController\ConstructorShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\ConstructorShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\CreateShould.cs" />
     <Compile Include="Data\EfAquaWorldDataProvider\AddShould.cs" />
@@ -95,6 +96,10 @@
     <ProjectReference Include="..\AquaWorld.Data\AquaWorld.Data.csproj">
       <Project>{ace6fd14-487a-45a3-b37d-ca15588f895c}</Project>
       <Name>AquaWorld.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AquaWorld.Web\AquaWorld.Web.csproj">
+      <Project>{a619e1fc-7817-484d-8ccc-85c083bc3b3f}</Project>
+      <Name>AquaWorld.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
