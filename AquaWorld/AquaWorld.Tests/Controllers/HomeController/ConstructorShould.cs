@@ -9,7 +9,7 @@ namespace AquaWorld.Tests.Controllers.HomeController
     public class ConstructorShould
     {
         [Test]
-        public void ReturnsAnInstance_WhenParameterIsNotNull()
+        public void ReturnsAnInstanceWhenParameterIsNotNull()
         {
             // Arrange
             var creatureServiceMock = new Mock<ICreatureService>();
@@ -22,7 +22,7 @@ namespace AquaWorld.Tests.Controllers.HomeController
         }
 
         [Test]
-        public void ThrowException_WhenParametersAreNull()
+        public void ThrowExceptionWhenParametersAreNull()
         {
             // Arrange & Act & Assert
             Assert.Throws<ArgumentNullException>(() => new AquaWorld.Web.Controllers.HomeController(null));
