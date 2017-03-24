@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Controllers\HomeController\AboutShould.cs" />
     <Compile Include="Controllers\HomeController\ConstructorShould.cs" />
+    <Compile Include="Controllers\HomeController\ContactShould.cs" />
     <Compile Include="Controllers\HomeController\IndexShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\ConstructorShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\CreateShould.cs" />
