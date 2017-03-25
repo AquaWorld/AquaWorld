@@ -91,6 +91,10 @@
     <Compile Include="Controllers\CreaturesController\ConstructorShould.cs" />
     <Compile Include="Controllers\CreaturesController\DetailsShould.cs" />
     <Compile Include="Controllers\CreaturesController\IndexShould.cs" />
+    <Compile Include="Controllers\ErrorController\BadRequestShould.cs" />
+    <Compile Include="Controllers\ErrorController\IndexShould.cs" />
+    <Compile Include="Controllers\ErrorController\NotFoundShould.cs" />
+    <Compile Include="Controllers\ErrorController\ServerErrorShould.cs" />
     <Compile Include="Controllers\HomeController\AboutShould.cs" />
     <Compile Include="Controllers\HomeController\ConstructorShould.cs" />
     <Compile Include="Controllers\HomeController\ContactShould.cs" />
