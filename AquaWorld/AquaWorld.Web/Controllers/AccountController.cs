@@ -156,7 +156,7 @@ namespace AquaWorld.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.UserName, Email = model.Email };
+                var user = new User { UserName = model.UserName, Email = model.Email, Address = model.Address };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 if (dbContext.Roles.Count() == 0)

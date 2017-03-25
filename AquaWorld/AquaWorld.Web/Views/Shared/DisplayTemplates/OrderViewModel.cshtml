@@ -1,0 +1,24 @@
+﻿@model AquaWorld.Web.Models.OrderViewModel
+<p>
+    Ordered on: @String.Format("{0:f}", Model.OrderedOn)
+</p>
+<span>
+    Items: @Model.ItemsCount
+</span>
+<span>
+    Total Price: @Model.TotalPrice.ToString("C")
+</span>
+@{
+            bool isProceeded = Model.isProceeded;
+}
+<span>
+    Status: @if (isProceeded)
+            {
+        <span style="color:greenyellow">Proceeded</span>
+    }
+    else
+    {
+        <span style="color:red">Not Proceeded</span>
+    }
+</span>
+<hr />
