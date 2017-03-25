@@ -1,5 +1,6 @@
 ﻿using AquaWorld.Data.Models;
 using AquaWorld.Data.Services.Contracts;
+using AquaWorld.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace AquaWorld.Web.Controllers
 
         public ActionResult MyOrders(string id)
         {
-            var cuurrentUsersOrders = this.orderService.GetOrdersByUserId(id);
+            var cuurrentUsersOrders = this.orderService.GetOrdersByUserId(id).ToList().Select(o=> new OrderViewModel(o)).ToList();
             return View(cuurrentUsersOrders);
         }
     }

@@ -1,11 +1,7 @@
-﻿using AquaWorld.Data.Models;
-using AquaWorld.Data.Services.Contracts;
+﻿using AquaWorld.Data.Services.Contracts;
+using AquaWorld.Web.Models;
 using Bytes2you.Validation;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.SessionState;
 
@@ -25,7 +21,7 @@ namespace AquaWorld.Web.Controllers
 
         public ActionResult Index()
         {
-            var allCreatures = this.creatureService.GetAllCreatures().ToList();
+            var allCreatures = this.creatureService.GetAllCreatures().ToList().Select(c=> new CreatureViewModel(c)).ToList();
             return View(allCreatures);
         }
 

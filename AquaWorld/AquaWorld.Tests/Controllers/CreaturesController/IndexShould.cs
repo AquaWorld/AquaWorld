@@ -1,5 +1,6 @@
 ﻿using AquaWorld.Data.Models;
 using AquaWorld.Data.Services.Contracts;
+using AquaWorld.Web.Models;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -27,9 +28,9 @@ namespace AquaWorld.Tests.Controllers.CreaturesController
             creatureController
                 .WithCallTo(c => c.Index())
                 .ShouldRenderDefaultView()
-                .WithModel<IList<Creature>>(model =>
+                .WithModel<IList<CreatureViewModel>>(model =>
                 {
-                    Assert.IsInstanceOf(typeof(IList<Creature>), model);
+                    Assert.IsInstanceOf(typeof(IList<CreatureViewModel>), model);
                 });
         }
     }
