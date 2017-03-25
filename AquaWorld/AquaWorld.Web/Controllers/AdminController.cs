@@ -1,10 +1,6 @@
 ﻿using AquaWorld.Data.Models;
 using AquaWorld.Data.Services.Contracts;
-using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Bytes2you.Validation;
 using System.Web.Mvc;
 
 namespace AquaWorld.Web.Controllers
@@ -16,6 +12,9 @@ namespace AquaWorld.Web.Controllers
 
         public AdminController(ICreatureService creatureService, IOrderService orderService)
         {
+            Guard.WhenArgument(creatureService, "creatureService").IsNull().Throw();
+            Guard.WhenArgument(orderService, "orderService").IsNull().Throw();
+
             this.creatureService = creatureService;
             this.orderService = orderService;
         }

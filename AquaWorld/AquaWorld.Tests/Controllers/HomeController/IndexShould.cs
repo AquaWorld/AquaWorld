@@ -1,9 +1,9 @@
 ﻿using AquaWorld.Data.Models;
 using AquaWorld.Data.Services.Contracts;
+using AquaWorld.Web.Models;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
-using System.Linq;
 using TestStack.FluentMVCTesting;
 
 namespace AquaWorld.Tests.Controllers.HomeController
@@ -28,10 +28,7 @@ namespace AquaWorld.Tests.Controllers.HomeController
             homeController
                 .WithCallTo(c => c.Index())
                 .ShouldRenderDefaultView()
-                .WithModel<IQueryable<Creature>>(model =>
-                  {
-                      Assert.IsInstanceOf(typeof(IQueryable<Creature>), model);
-                  });
+                .WithModel<IList<CreatureViewModel>>();
         }
     }
 }
