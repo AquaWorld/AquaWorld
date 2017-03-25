@@ -31,10 +31,16 @@ namespace AquaWorld.Web.Controllers
 
         public ActionResult Details(int? id)
         {
-            int parsedId = (id == null) ? 0 : (int)id;
+            if (id != null)
+            {
+                var targetCreature = this.creatureService.GetCreatureById((int)id);
 
-            var targetCreature = this.creatureService.GetCreatureById(parsedId);
-            return View(targetCreature);
+                return View(targetCreature);
+            }
+            else
+            {
+                return View(this.creatureService.GetAllCreatures().First());
+            }
         }
     }
 }
