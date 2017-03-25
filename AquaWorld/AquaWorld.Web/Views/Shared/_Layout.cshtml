@@ -17,11 +17,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Aqua World", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Aqua World", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Catalogue", "Index", "Creatures")</li>
+                    <li>@Html.ActionLink("Catalogue", "Index", "Creatures", new { area = string.Empty }, null)</li>
 
                     @{
                         if (User.IsInRole("admin"))
@@ -35,7 +35,7 @@
                 {
                     <ul class="nav navbar-nav navbar-right" style="margin-top: 0px; margin-left: 15px; display: table-row">
                         <li><a href="/ShoppingCart"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
-                        <li>@Html.ActionLink("My Orders", "MyOrders", "Order", new { @id = User.Identity.GetUserId() }, null)</li>
+                        <li>@Html.ActionLink("My Orders", "MyOrders", "Order", new { area = string.Empty, @id = User.Identity.GetUserId() }, null)</li>
                     </ul>
                 }
                 @Html.Partial("_LoginPartial")
@@ -49,9 +49,9 @@
             <footer class="navbar navbar-inverse navbar-fixed-bottom">
                 <ul class="nav navbar-nav">
                     @*<li>&copy; @DateTime.Now.Year - My ASP.NET Application</li>*@
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = string.Empty }, null)</li>
                 </ul>
             </footer>
         </div>

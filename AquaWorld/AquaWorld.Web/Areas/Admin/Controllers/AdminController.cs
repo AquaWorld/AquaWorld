@@ -3,7 +3,7 @@ using AquaWorld.Data.Services.Contracts;
 using Bytes2you.Validation;
 using System.Web.Mvc;
 
-namespace AquaWorld.Web.Controllers
+namespace AquaWorld.Web.Areas.Admin
 {
     public class AdminController : Controller
     {
