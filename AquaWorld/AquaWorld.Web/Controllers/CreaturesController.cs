@@ -19,6 +19,7 @@ namespace AquaWorld.Web.Controllers
             this.creatureService = creatureService;
         }
 
+        [OutputCache(Duration = 300, VaryByParam = "none")]
         public ActionResult Index()
         {
             var allCreatures = this.creatureService.GetAllCreatures().ToList().Select(c=> new CreatureViewModel(c)).ToList();

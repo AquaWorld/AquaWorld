@@ -20,10 +20,11 @@ namespace AquaWorld.Web.Controllers
             this.creatureService = creatureService;
         }
 
+        [OutputCache(Duration = 300)]
         public ActionResult Index()
         {
             List<CreatureViewModel> creaturesList = 
-                this.creatureService.GetAllCreatures().ToList().Select(c => new CreatureViewModel(c)).ToList();
+                this.creatureService.GetAllCreatures().Take(5).ToList().Select(c => new CreatureViewModel(c)).ToList();
 
             return View(creaturesList);
         }
