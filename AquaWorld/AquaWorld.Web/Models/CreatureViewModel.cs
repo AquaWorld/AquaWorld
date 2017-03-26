@@ -1,4 +1,5 @@
 ﻿using AquaWorld.Data.Models;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -18,6 +19,8 @@ namespace AquaWorld.Web.Models
                 this.AvailableCount = creature.AvailableCount;
                 this.ImageUrl = creature.ImageUrl;
                 this.Price = creature.Price;
+                this.OrderedItemsCount = creature.OrderedItemsCount;
+                this.Orders = new List<Order>(creature.Orders);
             }
         }
 
@@ -38,6 +41,10 @@ namespace AquaWorld.Web.Models
         [DisplayName("Available Count")]
         public int AvailableCount { get; set; }
 
+        public int OrderedItemsCount { get; set; }
+
         public decimal Price { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

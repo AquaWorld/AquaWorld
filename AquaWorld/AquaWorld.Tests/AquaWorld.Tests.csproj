@@ -142,7 +142,12 @@
     <Compile Include="Services\OrderService\GetAllOrdersShould.cs" />
     <Compile Include="Services\OrderService\GetOrdersByUserIdShould.cs" />
     <Compile Include="Services\OrderService\ProceedOrderByIdShould.cs" />
+    <Compile Include="ViewModels\CreatureViewModelShould.cs" />
+    <Compile Include="ViewModels\ExternalLoginConfirmationViewModelShould.cs" />
+    <Compile Include="ViewModels\ExternalLoginListViewModelShould.cs" />
+    <Compile Include="ViewModels\LoginViewModelShould.cs" />
     <Compile Include="ViewModels\OrderViewModelShould.cs" />
+    <Compile Include="ViewModels\RegisterViewModelShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

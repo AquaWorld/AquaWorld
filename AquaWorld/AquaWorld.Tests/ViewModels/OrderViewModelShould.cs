@@ -32,7 +32,7 @@ namespace AquaWorld.Tests.ViewModels
             var orderViewModel = new OrderViewModel(order);
 
             //Assert
-
+            Assert.AreEqual(order.Id, orderViewModel.Id);
             Assert.AreEqual(order.OrderedOn, orderViewModel.OrderedOn);
             Assert.AreEqual(order.TotalPrice, orderViewModel.TotalPrice);
             Assert.AreEqual(order.ItemsCount, orderViewModel.ItemsCount);

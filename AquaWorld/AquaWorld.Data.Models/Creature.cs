@@ -8,6 +8,11 @@ namespace AquaWorld.Data.Models
 {
     public class Creature : ICreature
     {
+        public Creature()
+        {
+            this.Orders = new List<Order>();
+        }
+
         public int Id { get; set; }
 
         [Required]

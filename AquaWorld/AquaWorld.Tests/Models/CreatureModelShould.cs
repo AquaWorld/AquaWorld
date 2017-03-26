@@ -24,7 +24,8 @@ namespace AquaWorld.Tests.Models
                 AvailableCount = 2,
                 Category = "fresh",
                 ImageUrl = "http://site.com",
-                Price = 12.5m
+                Price = 12.5m,
+                OrderedItemsCount = 3
             };
 
             //Assert
@@ -39,6 +40,7 @@ namespace AquaWorld.Tests.Models
             Assert.AreEqual(actualCreature.Description, "desc");
             Assert.AreEqual(actualCreature.Category, "fresh");
             Assert.AreEqual(actualCreature.ImageUrl, "http://site.com");
+            Assert.AreEqual(actualCreature.OrderedItemsCount, 3);
         }
     }
 }
