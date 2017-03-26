@@ -109,6 +109,7 @@
     <Compile Include="Controllers\HomeController\IndexShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\ConstructorShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\CreateShould.cs" />
+    <Compile Include="Data\Configuration\ConstructorShould.cs" />
     <Compile Include="Data\EfAquaWorldDataProvider\AddShould.cs" />
     <Compile Include="Data\EfAquaWorldDataProvider\AllShould.cs" />
     <Compile Include="Data\EfAquaWorldDataProvider\ConstructorShould.cs" />
@@ -118,6 +119,8 @@
     <Compile Include="Data\EfAquaWorldDataProvider\GetByIdShould.cs" />
     <Compile Include="Data\EfAquaWorldDataProvider\SaveChangesShould.cs" />
     <Compile Include="Data\EfAquaWorldDataProvider\UpdateShould.cs" />
+    <Compile Include="Helpers\DbContextForTest.cs" />
+    <Compile Include="Helpers\DbSetForTest.cs" />
     <Compile Include="Models\CreatureModelShould.cs" />
     <Compile Include="Models\OrderModelShould.cs" />
     <Compile Include="Models\UserModelShould.cs" />
