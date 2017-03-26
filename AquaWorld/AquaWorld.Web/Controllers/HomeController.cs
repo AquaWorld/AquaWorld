@@ -20,7 +20,6 @@ namespace AquaWorld.Web.Controllers
             this.creatureService = creatureService;
         }
 
-        [OutputCache(Duration = 300)]
         public ActionResult Index()
         {
             List<CreatureViewModel> creaturesList = 

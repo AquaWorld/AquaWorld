@@ -112,11 +112,13 @@
     <Compile Include="Data\EfAquaWorldDataProvider\UpdateShould.cs" />
     <Compile Include="Models\CreatureModelShould.cs" />
     <Compile Include="Models\OrderModelShould.cs" />
+    <Compile Include="Models\UserModelShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CreatureService\ConstructorShould.cs" />
     <Compile Include="Services\CreatureService\CreateShould.cs" />
     <Compile Include="Services\CreatureService\GetAllCreaturesShould.cs" />
     <Compile Include="Services\CreatureService\GetCreatureByIdShould.cs" />
+    <Compile Include="Services\CreatureService\UpdateCreatureShould.cs" />
     <Compile Include="Services\OrderService\ConstructorShould.cs" />
     <Compile Include="Services\OrderService\CreateOrderShould.cs" />
     <Compile Include="Services\OrderService\GetAllOrdersShould.cs" />

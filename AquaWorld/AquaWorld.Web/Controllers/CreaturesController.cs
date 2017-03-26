@@ -3,11 +3,9 @@ using AquaWorld.Web.Models;
 using Bytes2you.Validation;
 using System.Linq;
 using System.Web.Mvc;
-using System.Web.SessionState;
 
 namespace AquaWorld.Web.Controllers
 {
-    [SessionState(SessionStateBehavior.Default)]
     public class CreaturesController : Controller
     {
         private readonly ICreatureService creatureService;
@@ -19,7 +17,6 @@ namespace AquaWorld.Web.Controllers
             this.creatureService = creatureService;
         }
 
-        [OutputCache(Duration = 300, VaryByParam = "none")]
         public ActionResult Index()
         {
             var allCreatures = this.creatureService.GetAllCreatures().ToList().Select(c=> new CreatureViewModel(c)).ToList();

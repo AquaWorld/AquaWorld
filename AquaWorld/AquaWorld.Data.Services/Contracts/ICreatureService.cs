@@ -10,5 +10,7 @@ namespace AquaWorld.Data.Services.Contracts
         IQueryable<Creature> GetAllCreatures();
 
         Creature GetCreatureById(int id);
+
+        void UpdateCreature(Creature creature);
     }
 }

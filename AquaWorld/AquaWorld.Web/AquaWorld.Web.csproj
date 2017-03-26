@@ -254,10 +254,11 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Admin\AddCreature.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\CheckOrders.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditCreature.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CheckOrders.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AddCreature.cshtml" />
     <None Include="Properties\PublishProfiles\aquaworld - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\aquaworld - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

@@ -31,11 +31,31 @@ namespace AquaWorld.Web.Areas.Admin
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddCreature([Bind(Include = "Id,Name,Category,Description,AvailableCount,ImageUrl")] Creature creature)
+        public ActionResult AddCreature([Bind(Include = "Id,Name,Address,Category,Description,AvailableCount,ImageUrl")] Creature creature)
         {
             if (ModelState.IsValid)
             {
                 this.creatureService.Create(creature);
+                return RedirectToAction("Index");
+            }
+
+            return View(creature);
+        }
+
+        public ActionResult EditCreature(int? id)
+        {
+            Creature targetCreature = this.creatureService.GetCreatureById((int)id);
+           
+            return View(targetCreature);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditCreature([Bind(Include = "Id,Price,Name,Category,Description,AvailableCount,ImageUrl")] Creature creature)
+        {
+            if (ModelState.IsValid)
+            {
+                this.creatureService.UpdateCreature(creature);
                 return RedirectToAction("Index");
             }
 
