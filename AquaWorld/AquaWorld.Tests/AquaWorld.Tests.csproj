@@ -112,6 +112,8 @@
     <Compile Include="Controllers\OrderController\IndexShould.cs" />
     <Compile Include="Controllers\OrderController\MyOrdersShould.cs" />
     <Compile Include="Controllers\ShoppingCartController\ConstructorShould.cs" />
+    <Compile Include="Controllers\ShoppingCartController\IndexShould.cs" />
+    <Compile Include="Controllers\ShoppingCartController\OutOfStockShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\ConstructorShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\CreateShould.cs" />
     <Compile Include="Data\Configuration\ConstructorShould.cs" />
@@ -140,6 +142,7 @@
     <Compile Include="Services\OrderService\GetAllOrdersShould.cs" />
     <Compile Include="Services\OrderService\GetOrdersByUserIdShould.cs" />
     <Compile Include="Services\OrderService\ProceedOrderByIdShould.cs" />
+    <Compile Include="ViewModels\OrderViewModelShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
