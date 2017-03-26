@@ -18,6 +18,15 @@
         <p>
             Shipping Adress: @order.User.Address
         </p>
+        foreach (var creature in order.Creatures)
+        {
+            <p>
+                <span> @creature.Name </span>
+                <span>
+                    <img src="@creature.ImageUrl" width="50" height="30" class="img-rounded" />
+                </span>
+            </p>
+        }
         <span>
             Items: @order.ItemsCount
         </span>
