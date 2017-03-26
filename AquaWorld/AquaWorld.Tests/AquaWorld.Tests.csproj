@@ -88,7 +88,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdminController\AddCreaturePostShould.cs" />
+    <Compile Include="Controllers\AdminController\AddCreatureShould.cs" />
+    <Compile Include="Controllers\AdminController\CheckOrdersShould.cs" />
     <Compile Include="Controllers\AdminController\ConstructorShould.cs" />
+    <Compile Include="Controllers\AdminController\EditCreaturePostShould.cs" />
+    <Compile Include="Controllers\AdminController\EditCreatureShould.cs" />
+    <Compile Include="Controllers\AdminController\IndexShould.cs" />
+    <Compile Include="Controllers\AdminController\ProceedOrderByIdShould.cs" />
     <Compile Include="Controllers\CreaturesController\ConstructorShould.cs" />
     <Compile Include="Controllers\CreaturesController\DetailsShould.cs" />
     <Compile Include="Controllers\CreaturesController\IndexShould.cs" />
