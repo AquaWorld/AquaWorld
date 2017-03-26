@@ -1,9 +1,8 @@
 ﻿using AquaWorld.Data.Models;
 using AquaWorld.Data.Services.Contracts;
-using System;
+using Bytes2you.Validation;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AquaWorld.Web.Controllers
@@ -15,6 +14,8 @@ namespace AquaWorld.Web.Controllers
 
         public ShoppingCartController(ICreatureService creatureService)
         {
+            Guard.WhenArgument(creatureService, "creatureService").IsNull().Throw();
+
             this.creatureService = creatureService;
         }
 

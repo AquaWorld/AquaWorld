@@ -111,6 +111,7 @@
     <Compile Include="Controllers\OrderController\CreateShould.cs" />
     <Compile Include="Controllers\OrderController\IndexShould.cs" />
     <Compile Include="Controllers\OrderController\MyOrdersShould.cs" />
+    <Compile Include="Controllers\ShoppingCartController\ConstructorShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\ConstructorShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\CreateShould.cs" />
     <Compile Include="Data\Configuration\ConstructorShould.cs" />
