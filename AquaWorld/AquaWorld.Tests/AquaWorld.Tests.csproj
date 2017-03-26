@@ -107,6 +107,7 @@
     <Compile Include="Controllers\HomeController\ConstructorShould.cs" />
     <Compile Include="Controllers\HomeController\ContactShould.cs" />
     <Compile Include="Controllers\HomeController\IndexShould.cs" />
+    <Compile Include="Controllers\OrderController\ConstructorShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\ConstructorShould.cs" />
     <Compile Include="Data\AquaWorldDbContext\CreateShould.cs" />
     <Compile Include="Data\Configuration\ConstructorShould.cs" />

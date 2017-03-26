@@ -1,6 +1,7 @@
 ﻿using AquaWorld.Data.Models;
 using AquaWorld.Data.Services.Contracts;
 using AquaWorld.Web.Models;
+using Bytes2you.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace AquaWorld.Web.Controllers
 
         public OrderController(IOrderService orderService)
         {
+            Guard.WhenArgument(orderService, "orderService").IsNull().Throw();
+
             this.orderService = orderService;
         }
 
