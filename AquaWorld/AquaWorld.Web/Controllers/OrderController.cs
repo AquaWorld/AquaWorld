@@ -34,7 +34,19 @@ namespace AquaWorld.Web.Controllers
             if (Session["CartItems"] != null)
             {
                 var cartItems = Session["CartItems"] as List<Creature>;
-                creaturesList.AddRange(cartItems);
+                for (int i = 0; i < cartItems.Count; i++)
+                {
+                    if (creaturesList.Any(c => c.Id == cartItems[i].Id))
+                    {
+                        var targetCreature = creaturesList.First(c => c.Id == cartItems[i].Id);
+                        targetCreature.OrderedItemsCount += 1;
+                    }
+                    else
+                    {
+                        cartItems[i].OrderedItemsCount = 1;
+                        creaturesList.Add(cartItems[i]);
+                    }
+                }
                 Session["CartItems"] = null;
             }
 
@@ -45,7 +57,7 @@ namespace AquaWorld.Web.Controllers
 
         public ActionResult MyOrders(string id)
         {
-            var cuurrentUsersOrders = this.orderService.GetOrdersByUserId(id).ToList().Select(o=> new OrderViewModel(o)).ToList();
+            var cuurrentUsersOrders = this.orderService.GetOrdersByUserId(id).ToList().Select(o => new OrderViewModel(o)).ToList();
             return View(cuurrentUsersOrders);
         }
     }

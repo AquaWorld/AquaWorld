@@ -25,6 +25,10 @@ namespace AquaWorld.Data.Models
         [DisplayName("Available Count")]
         public int AvailableCount { get; set; }
 
+        public int OrderedItemsCount { get; set; }
+
         public decimal Price { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

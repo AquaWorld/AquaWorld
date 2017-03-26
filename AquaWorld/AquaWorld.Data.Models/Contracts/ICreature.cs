@@ -12,6 +12,8 @@
 
         int AvailableCount { get; set; }
 
+        int OrderedItemsCount { get; set; }
+
         decimal Price { get; set; }
     }
 }

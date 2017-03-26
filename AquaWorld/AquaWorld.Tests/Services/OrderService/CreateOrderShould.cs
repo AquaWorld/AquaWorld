@@ -34,13 +34,13 @@ namespace AquaWorld.Tests.Services.OrderService
         }
 
         [Test]
-        public void ReturnFalseWhenAvailableCountIsZero()
+        public void ReturnFalseWhenAvailableCountIsLessThanZero()
         {
             //Arrange
             var mockedOrderDataProvider = new Mock<IEfAquaWorldDataProvider<Order>>();
             var mockedCreatureDataProvider = new Mock<IEfAquaWorldDataProvider<Creature>>();
             var mockedOrderToCreate = new Order();
-            var mockedCreature = new Creature() { Id = 2, Price = 5m, AvailableCount = 0 };
+            var mockedCreature = new Creature() { Id = 2, Price = 5m, AvailableCount = -1 };
 
             mockedCreatureDataProvider.Setup(x => x.GetById(2)).Returns(mockedCreature);
 

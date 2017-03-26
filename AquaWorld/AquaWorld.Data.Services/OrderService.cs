@@ -30,17 +30,18 @@ namespace AquaWorld.Data.Services
             this.orderToCreate.UserId = userId;
             this.orderToCreate.OrderedOn = DateTime.Now;
             this.orderToCreate.isProceeded = false;
-            this.orderToCreate.ItemsCount = creaturesList.Count();
             this.orderToCreate.Creatures = new List<Creature>();
 
             decimal totalPrice = 0;
             foreach (var item in creaturesList)
             {
                 var currentCreature = this.creatureDataProvider.GetById(item.Id);
+                currentCreature.OrderedItemsCount = item.OrderedItemsCount;
+                orderToCreate.ItemsCount += item.OrderedItemsCount;
                 this.orderToCreate.Creatures.Add(currentCreature);
-                if (currentCreature.AvailableCount > 0)
+                if (currentCreature.AvailableCount - item.OrderedItemsCount >= 0)
                 {
-                    currentCreature.AvailableCount--;
+                    currentCreature.AvailableCount -= item.OrderedItemsCount;
                     this.creatureDataProvider.SaveChanges();
                 }
                 else
@@ -48,7 +49,7 @@ namespace AquaWorld.Data.Services
                     return false;
                 }
 
-                totalPrice += item.Price;
+                totalPrice += item.Price * item.OrderedItemsCount;
             }
 
             this.orderToCreate.TotalPrice = totalPrice;
