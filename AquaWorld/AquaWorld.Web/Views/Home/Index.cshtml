@@ -9,48 +9,53 @@
 </div>
 
 <div style="margin-left:320px">
-    <div id="carousel-example" class="carousel slide" data-ride="carousel" style="width:500px;height:300px;text-align:center">
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-            @{int counter = 0; }
-            @foreach (var item in Model)
-            {
-                if (counter > 0)
-                {
-                <li data-target="#carousel-example" data-slide-to="@counter"></li>
-                }
-                counter++;
-            }
-        </ol>
 
-        <div class="carousel-inner">
-            <div class="item active">
-                <a href="/Creatures/Details/@Model.First().Id"><img src="@Model.First().ImageUrl" alt="First Image" class="img-rounded" style="width:500px;height:300px" /></a>
-                <div class="carousel-caption">
-                    <i style="font-size: x-large; color: white; text-shadow: 6px 6px 15px #000000">@Model.First().Name</i>
-                </div>
-            </div>
-            @{int counter2 = 0; }
-            @foreach (var item in Model)
-            {
-                if (counter2 > 0)
+    @if (Model.Count() > 0)
+    {
+
+        <div id="carousel-example" class="carousel slide" data-ride="carousel" style="width:500px;height:300px;text-align:center">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                @{int counter = 0; }
+                @foreach (var item in Model)
                 {
-                    <div class="item">
-                        <a href="/Creatures/Details/@item.Id"><img src="@item.ImageUrl" alt="First Image" class="img-rounded" style="width:500px;height:300px" /></a>
-                        <div class="carousel-caption">
-                            <i style="font-size: x-large; color: white; text-shadow: 6px 6px 15px #000000">@item.Name</i>
-                        </div>
+                    if (counter > 0)
+                    {
+                        <li data-target="#carousel-example" data-slide-to="@counter"></li>
+                    }
+                    counter++;
+                }
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a href="/Creatures/Details/@Model.First().Id"><img src="@Model.First().ImageUrl" alt="First Image" class="img-rounded" style="width:500px;height:300px" /></a>
+                    <div class="carousel-caption">
+                        <i style="font-size: x-large; color: white; text-shadow: 6px 6px 15px #000000">@Model.First().Name</i>
                     </div>
+                </div>
+                @{int counter2 = 0; }
+                @foreach (var item in Model)
+                {
+                    if (counter2 > 0)
+                    {
+                        <div class="item">
+                            <a href="/Creatures/Details/@item.Id"><img src="@item.ImageUrl" alt="First Image" class="img-rounded" style="width:500px;height:300px" /></a>
+                            <div class="carousel-caption">
+                                <i style="font-size: x-large; color: white; text-shadow: 6px 6px 15px #000000">@item.Name</i>
+                            </div>
+                        </div>
+                    }
+                    counter2++;
                 }
-                counter2++;
-            }
-        </div>
+            </div>
 
-        <a class="left carousel-control" href="#carousel-example" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-    </div>
+            <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+     }
 </div>
